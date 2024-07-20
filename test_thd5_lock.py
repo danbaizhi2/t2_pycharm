@@ -30,8 +30,10 @@ t1.start()
 t2.start()
 t3.start()
 
-# t1.join()
+t1.join()
 t2.join()
+t3.join()
+
 print('end all')
 
 # 修改，为了第二次git commit
