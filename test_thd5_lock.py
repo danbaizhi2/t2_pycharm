@@ -2,7 +2,7 @@ import threading
 import time
 
 count = 0
-l = threading.Lock()
+lock = threading.Lock()
 
 def add():
     global count
@@ -11,13 +11,13 @@ def add():
         count += 1
 
 def add_(name, stop):
-    l.acquire()
+    lock.acquire()
     global count
     while count < stop:
         print(f"{name},  <{count}>")
         count += 1
         time.sleep(0.2)
-    l.release()
+    lock.release()
 
 # add()
 # add_('yi')
@@ -30,11 +30,8 @@ t1.start()
 t2.start()
 t3.start()
 
-t1.join()
+# t1.join()
 t2.join()
-t3.join()
-
 print('end all')
 
 # 修改，为了第二次git commit
-# 再修改一次，试一下commit能行吗
